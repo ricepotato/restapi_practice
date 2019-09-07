@@ -22,11 +22,11 @@ class UserData:
     def login(self, id: str, password: str) -> dict:
         """ user login """
         for key, val in self.users_dict.items():
-        if val["id"] == id and val["password"] == password:
-            log.info("login success user_key=%s", str(key))
-            return key
-        else:
-            return None
+            if val["id"] == id and val["password"] == password:
+                log.info("login success user_key=%s", str(key))
+                return key
+            else:
+                return None
 
     def create_user(self, user: dict) -> int:
         new_id = self._get_id()
