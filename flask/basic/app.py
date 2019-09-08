@@ -17,6 +17,13 @@ def rec():
     dict_result = {"msg":"hello world!"}
     return jsonify(dict_result)
 
+@app.route("/error", methods=["GET"])
+def error():
+    try:
+        a = 1 / 0
+    except ZeroDivisionError as e:
+        return jsonify({"msg":f"error {e}"}), 500
+
 def main():
     app.run(host="0.0.0.0", port=8080, debug=True)
 
