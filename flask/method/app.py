@@ -26,7 +26,11 @@ users_dict = {
 @app.errorhandler(404)
 def page_not_found(error):
     #return render_template('page_not_found.html'), 404
-    return jsonify({"msg":"page not found"})
+    return jsonify({"msg":"page not found."})
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({"msg":"unexpected error."})
 
 def get_id(users_dict):
     id = 1
